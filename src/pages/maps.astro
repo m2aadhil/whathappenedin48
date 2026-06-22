@@ -1,0 +1,102 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Maps &amp; Data" description="Interactive maps showing the demographic transformation of Palestine: 1946 population distribution, the 1947 UN Partition Plan, and the 1949 outcome — including every destroyed village.">
+  
+  <section class="hero" style="padding: var(--space-3xl) 0;">
+    <div class="hero-inner">
+      <h1 style="font-size: var(--text-5xl);">Maps &amp; Data</h1>
+      <p class="subhead">The demographic transformation of Palestine — seen through maps, numbers, and the villages that disappeared.</p>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="container" style="max-width:42rem;margin:0 auto;">
+      <p>The most powerful way to understand what happened in 1948 is to watch the map change. Three maps tell the story — before the partition, the partition itself, and what actually happened by 1949.</p>
+      
+      <p>In 1946, Palestine's population was roughly 67% Arab and 33% Jewish. The UN Partition Plan allocated 56% of the land to the proposed Jewish state. By the end of the war, Israel controlled 78% of Mandatory Palestine — and hundreds of villages had been erased from the map.</p>
+
+      <p><strong>Coming soon:</strong> An interactive map showing the demographic transformation, all 400+ destroyed villages, and the evolving borders from 1946 to 1949. The data is being verified and mapped. In the meantime, please explore the statistics below.</p>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="page-section alt">
+    <div class="container">
+      <div class="section-header">
+        <h2>By the Numbers</h2>
+        <p>1948 in verified statistics. Every figure sourced from UN documents, census data, and academic research.</p>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">1.3M</div>
+          <div class="stat-label">Arab population of Palestine, 1946</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">600K</div>
+          <div class="stat-label">Jewish population of Palestine, 1946</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">56%</div>
+          <div class="stat-label">Land allocated to Jewish state under UN 181</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">78%</div>
+          <div class="stat-label">Territory controlled by Israel by 1949</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">700K+</div>
+          <div class="stat-label">Palestinians displaced</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">400–600</div>
+          <div class="stat-label">Villages destroyed or depopulated</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">5.9M</div>
+          <div class="stat-label">Registered refugees today (UNRWA)</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">~7%</div>
+          <div class="stat-label">Land owned by Jews in 1947</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Land Ownership -->
+  <section class="page-section">
+    <div class="container" style="max-width:42rem;margin:0 auto;">
+      <h2 style="text-align:center;margin-bottom:var(--space-xl);">Land Ownership in 1947</h2>
+      <p>At the time of the UN Partition Plan, Jews owned approximately 7% of the land in Mandatory Palestine. The remainder was owned by Palestinian Arabs, held communally by villages, or classified as state land inherited from the Ottoman and British administrations.</p>
+      
+      <div style="overflow-x:auto;">
+        <table style="width:100%;border-collapse:collapse;margin:var(--space-xl) 0;">
+          <thead>
+            <tr style="border-bottom:2px solid var(--ink);">
+              <th style="text-align:left;padding:var(--space-sm) var(--space-md);">Land Category</th>
+              <th style="text-align:right;padding:var(--space-sm) var(--space-md);">Percentage</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--fog);">
+              <td style="padding:var(--space-sm) var(--space-md);">Jewish-owned land</td>
+              <td style="text-align:right;padding:var(--space-sm) var(--space-md);font-family:var(--font-mono);">~7%</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--fog);">
+              <td style="padding:var(--space-sm) var(--space-md);">Palestinian Arab-owned land</td>
+              <td style="text-align:right;padding:var(--space-sm) var(--space-md);font-family:var(--font-mono);">~47%</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--fog);">
+              <td style="padding:var(--space-sm) var(--space-md);">State domain (inherited from Ottomans/British)</td>
+              <td style="text-align:right;padding:var(--space-sm) var(--space-md);font-family:var(--font-mono);">~46%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:var(--text-sm);color:var(--flint);margin-top:var(--space-lg);">Source: British Mandate Government, <em>Survey of Palestine</em>, 1946. See also: Anglo-American Committee of Inquiry, 1946; UN Ad Hoc Committee on the Palestinian Question, 1947.</p>
+    </div>
+  </section>
+
+</Layout>

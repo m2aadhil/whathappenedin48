@@ -1,23 +1,108 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+---
+// Layout.astro — Main site layout with nav, footer, SEO
+export interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+}
+const { title, description, ogImage } = Astro.props;
+const fullTitle = `${title} — What Happened in '48`;
+const defaultDescription = "The story of the year that reshaped the Middle East — told through documents, data, and the voices of those who lived it.";
+---
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{fullTitle}</title>
+  <meta name="description" content={description || defaultDescription} />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content={fullTitle} />
+  <meta property="og:description" content={description || defaultDescription} />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="What Happened in '48" />
+  {ogImage && <meta property="og:image" content={ogImage} />}
+  
+  <!-- Favicon / Icons -->
+  <link rel="icon" type="image/svg+xml" href="/logo-icon.svg" />
+  <link rel="apple-touch-icon" href="/logo-icon.svg" />
+  
+  <link rel="stylesheet" href="/src/styles/global.css" />
+</head>
+<body>
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo" aria-label="What Happened in '48 — Home">
+        <span class="apostrophe">&rsquo;</span>48
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        ☰
+      </button>
+      <ul class="nav-links" id="navLinks" role="menubar">
+        <li role="none"><a href="/story" role="menuitem">The Story</a></li>
+        <li role="none"><a href="/maps" role="menuitem">Maps &amp; Data</a></li>
+        <li role="none"><a href="/timeline" role="menuitem">Timeline</a></li>
+        <li role="none"><a href="/voices" role="menuitem">Voices</a></li>
+        <li role="none"><a href="/faq" role="menuitem">Common Questions</a></li>
+        <li role="none"><a href="/resources" role="menuitem">Resources</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <slot />
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <p class="principle">We don't argue. We document.</p>
+        <p>What Happened in '48 is a non-advocacy documentation project. We collect, verify, and present evidence — and let it speak for itself.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="/story">The Story</a></li>
+          <li><a href="/maps">Maps &amp; Data</a></li>
+          <li><a href="/timeline">Timeline</a></li>
+          <li><a href="/voices">Voices</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>About</h4>
+        <ul>
+          <li><a href="/faq">Common Questions</a></li>
+          <li><a href="/resources">Resources</a></li>
+          <li><a href="/about">About This Project</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 What Happened in '48. All sources cited.</span>
+      <span>Built with evidence. Updated continuously.</span>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    document.getElementById('navToggle')?.addEventListener('click', () => {
+      const links = document.getElementById('navLinks');
+      const btn = document.getElementById('navToggle');
+      const isOpen = links?.classList.toggle('open');
+      if (btn) btn.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    // Highlight current page in nav
+    const currentPath = window.location.pathname;
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      if (link.getAttribute('href') === currentPath) {
+        link.classList.add('active');
+      } else if (currentPath.startsWith(link.getAttribute('href') || '') && link.getAttribute('href') !== '/') {
+        link.classList.add('active');
+      }
+    });
+  </script>
+</body>
+</html>
