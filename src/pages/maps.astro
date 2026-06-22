@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import VillageMap from '../components/VillageMap';
 ---
 
 <Layout title="Maps &amp; Data" description="Interactive maps showing the demographic transformation of Palestine: 1946 population distribution, the 1947 UN Partition Plan, and the 1949 outcome — including every destroyed village.">
@@ -17,7 +18,19 @@ import Layout from '../layouts/Layout.astro';
       
       <p>In 1946, Palestine's population was roughly 67% Arab and 33% Jewish. The UN Partition Plan allocated 56% of the land to the proposed Jewish state. By the end of the war, Israel controlled 78% of Mandatory Palestine — and hundreds of villages had been erased from the map.</p>
 
-      <p><strong>Coming soon:</strong> An interactive map showing the demographic transformation, all 400+ destroyed villages, and the evolving borders from 1946 to 1949. The data is being verified and mapped. In the meantime, please explore the statistics below.</p>
+      <p>Below: an interactive map of destroyed and depopulated Palestinian villages in 1948. Each dot represents a community that was erased. Click any dot for details — the village name, its 1945 population, when it was depopulated, and what stands there now.</p>
+      <p style="font-size:var(--text-sm);color:var(--flint);">This map shows a representative sample of 28 villages across 11 districts. The full dataset includes 400–600 destroyed villages. Data sourced from PalestineRemembered.com, Zochrot, and academic research.</p>
+    </div>
+  </section>
+
+  <!-- Interactive Map -->
+  <section class="page-section">
+    <div class="container" style="max-width:56rem;margin:0 auto;">
+      <div class="section-header">
+        <h2>Destroyed Villages of 1948</h2>
+        <p>Each circle marks a Palestinian village destroyed or depopulated in 1948. Circle size reflects the 1945 population.</p>
+      </div>
+      <VillageMap client:only="react" />
     </div>
   </section>
 
